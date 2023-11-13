@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;700&family=Inter:wght@300&family=Kanit:wght@200&family=Nunito+Sans:ital,opsz@1,6..12&family=Open+Sans:wght@300&family=Poppins:wght@200&family=Roboto:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+body{
+    background-image:url(flat-lay-workstation-with-copy-space-laptop.jpg);
+    background-size: cover;
+}
+nav{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0.1, 0.1);
+}
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+.logo img{
+    width: 45px;
+    height: 50px;
+    border-radius: 50%;
+}
+.logo span{
+    font-weight: bold;
+    text-align: left;
+}
+a{
+    position: relative;
+    color: blue;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+}
+.nav-item{
+    position: relative;
+    text-align: left;
+    top: 12px;
+    margin-left: 10px;
+}
+a:hover{
+    background: black;
+}
+nav:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+}

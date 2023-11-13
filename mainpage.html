@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <head>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="logo.jpeg" type="image/icon type">
+</head>
+<body style="
+  display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100vh;
+            margin: 0;">
+    <h1 style="margin:0 20px 0 0; font-size: 40px; text-align: left;">Chase your deadlines</h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="#" class="logo">
+                    <img src="logo.jpeg" alt="">
+                    <span class="nav-item"></span>
+                </a>
+            </li>
+            <li><a href="#">
+                <i class="fas fa-home"></i>
+                <span class="nav-tem">Home</span>
+            </a></li>
+            <li><a href="#" onclick="gotopage(1)">
+                <i class="fas fa-user"></i>
+                <span class="nav-tem">My Tasks</span>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-wallet"></i>
+                    <span class="nav-tem">Wallets</span>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-analytics"></i>
+                <span class="nav-tem">Analytics</span>
+            </a></li>
+        </ul>
+    </nav>
+    <script>function gotopage(page){
+        if(page==1){
+            window.location.href='tasks.html'
+        }
+    }
+  </script>
+    
+</body>
+</html>
