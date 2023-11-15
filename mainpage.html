@@ -8,13 +8,9 @@
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="logo.jpeg" type="image/icon type">
 </head>
-<body style="
-  display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            height: 100vh;
-            margin: 0;">
-    <h1 style="margin:0 20px 0 0; font-size: 40px; text-align: left;">Chase your deadlines</h1>
+<body>
+    <h1>Chase your deadlines</h1>
+    <h2 id="greeting"></h2>
     <nav>
         <ul>
             <li>
@@ -24,29 +20,74 @@
                 </a>
             </li>
             <li><a href="#">
-                <i class="fas fa-home"></i>
-                <span class="nav-tem">Home</span>
+                <i class="home"></i>
+                <span class="nav-item">Home</span>
             </a></li>
             <li><a href="#" onclick="gotopage(1)">
-                <i class="fas fa-user"></i>
-                <span class="nav-tem">My Tasks</span>
+                <i class="user"></i>
+                <span class="nav-item">My Tasks</span>
             </a></li>
-            <li><a href="#">
-                <i class="fas fa-wallet"></i>
-                    <span class="nav-tem">Wallets</span>
-            </a></li>
-            <li><a href="#">
-                <i class="fas fa-analytics"></i>
-                <span class="nav-tem">Analytics</span>
-            </a></li>
+            <li id="myListsOption">
+                <a href="#">
+                    <i class="fas fa-list"></i>
+                    <span class="nav-item" onclick="toggleListOptions()">My Lists</span>
+                </a>
+                <ul id="dynamicList"></ul>
+            </li>
         </ul>
+        <div id="listOptions" style="display: none;">
+            <input type="text" id="listInput" placeholder="Enter List Name">
+            <button onclick="addNewList()">Add List</button>
+        </div>
     </nav>
     <script>function gotopage(page){
         if(page==1){
             window.location.href='tasks.html'
         }
     }
+    function getGreeting() {
+            const today = new Date();
+            const hour = today.getHours();
+            const day = today.toLocaleDateString(undefined, { weekday: 'long' });
+            const date = today.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+            let greeting = '';
+
+            if (hour >= 5 && hour < 12) {
+                greeting = 'Good morning';
+            } else if (hour >= 12 && hour < 18) {
+                greeting = 'Good afternoon';
+            } else {
+                greeting = 'Good evening';
+            }
+            document.getElementById('greeting').innerText = `${greeting}, User. Today is ${day}, ${date}.`;
+        }
+
+        getGreeting();
+
+        function toggleListOptions() {
+            var listOptions = document.getElementById('listOptions');
+            listOptions.style.display = listOptions.style.display === 'none' || listOptions.style.display === '' ? 'block' : 'none';
+        }
+
+        function addNewList() {
+            var listName = document.getElementById('listInput').value;
+
+            if (listName.trim() !== '') {
+                var dynamicList = document.getElementById('dynamicList');
+
+                var newList = document.createElement('li');
+                newList.innerHTML = '<a href="#"><i class="fas fa-list"></i><span class="nav-item">' + listName + '</span></a>' +
+                                    '<button onclick="removeList(this)">Remove</button>';
+
+                dynamicList.appendChild(newList);
+                document.getElementById('listInput').value = '';
+                document.getElementById('listOptions').style.display = 'none';
+            }
+        }
+        function removeList(button) {
+            var listItem = button.parentNode;
+            listItem.parentNode.removeChild(listItem);
+        }
   </script>
-    
 </body>
 </html>
